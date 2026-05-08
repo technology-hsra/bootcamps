@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kiosk Display</title>
+    <title>Universal Kiosk Display</title>
     <style>
         body, html { 
             margin: 0; 
@@ -15,34 +15,35 @@
             align-items: center;
         }
 
-        /* The Wrapper Container */
         .container {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         iframe { 
-            /* Set the virtual size much larger (e.g., 150%) */
-            width: 150%; 
-            height: 150%; 
+            /* This makes the 'window' of the sheet huge so it doesn't wrap */
+            width: 1920px; 
+            height: 1080px; 
             border: none;
-            
-            /* Use zoom to scale the content itself */
-            zoom: 1.5; 
-            -moz-transform: scale(1.5); 
-            -moz-transform-origin: 0 0;
-            -o-transform: scale(1.5); 
-            -o-transform-origin: 0 0;
-            -webkit-transform: scale(1.5); 
-            -webkit-transform-origin: 0 0;
+
+            /* This scales the 1920px window to fit YOUR specific screen width */
+            transform: scale(calc(100vw / 1920));
+            transform-origin: center center;
+        }
+
+        /* If the screen is vertical or odd-shaped, this ensures it doesn't break */
+        @media (aspect-ratio: 4/3) {
+            iframe {
+                transform: scale(calc(100vh / 1080));
+            }
         }
     </style>
     <script>
-        // Auto-refresh every 5 minutes to catch Staff updates
+        // Refresh every 5 mins to sync staff changes
         setTimeout(function(){
            location.reload();
         }, 300000); 
