@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kiosk Display</title>
+    <style>
+        /* This removes all margins and scrollbars */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: white;
+        }
+        /* This forces the spreadsheet to fill the screen */
+        iframe { 
+            width: 100vw; 
+            height: 100vh; 
+            border: none;
+        }
+    </style>
+    <script>
+        setTimeout(function(){
+           location.reload();
+        }, 300000); // 300,000 milliseconds = 5 minutes
+    </script>
+</head>
+<body>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkuCgAc7eHk2IqOmsU2iZWsoacPryxR4EmYdKq5jL3tbPdXcQ6CWcndhIl5g6Z8_VpR-T91R1y964U/pubhtml?gid=569544912&single=true&rm=minimal&chrome=false"></iframe>
+</body>
+</html>
