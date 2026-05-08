@@ -2,46 +2,33 @@
 <html>
 <head>
     <title>Universal Kiosk Display</title>
-    <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100vh; 
-            width: 100vw; 
-            overflow: hidden; 
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+<style>
+    body, html { 
+        margin: 0; 
+        padding: 0; 
+        height: 100vh; 
+        width: 100vw; 
+        overflow: hidden; 
+        background-color: white;
+    }
 
-        .container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+    .container {
+        width: 100vw;
+        height: 100vh;
+        /* Remove flex centering to prevent the top from being pushed off-screen */
+        overflow: hidden;
+    }
 
-        iframe { 
-            /* This makes the 'window' of the sheet huge so it doesn't wrap */
-            width: 1920px; 
-            height: 1080px; 
-            border: none;
+    iframe { 
+        width: 1920px; 
+        height: 1080px; 
+        border: none;
 
-            /* This scales the 1920px window to fit YOUR specific screen width */
-            transform: scale(calc(100vw / 1920));
-            transform-origin: center center;
-        }
-
-        /* If the screen is vertical or odd-shaped, this ensures it doesn't break */
-        @media (aspect-ratio: 4/3) {
-            iframe {
-                transform: scale(calc(100vh / 1080));
-            }
-        }
-    </style>
+        /* Change origin to top center so Row 1 is the anchor point */
+        transform: scale(calc(100vw / 1920));
+        transform-origin: top center;
+    }
+</style>
     <script>
         // Refresh every 5 mins to sync staff changes
         setTimeout(function(){
