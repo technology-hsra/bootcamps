@@ -14,16 +14,27 @@
             background-color: #000;
         }
 
+        /* This container crops out the Canva player controls at the bottom */
+        .kiosk-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Making the iframe 106% tall pushes the bottom player bar off the screen */
         iframe {
             width: 100%;
-            height: 100%;
+            height: 106%; 
             border: none;
-            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
     
     <script>
-        // Reloads every 10 minutes to grab new edits
+        // Keeps the page fresh and acts as a safety net backup loop
         setTimeout(function(){
            location.reload();
         }, 600000); 
@@ -31,6 +42,9 @@
 </head>
 <body>
 
-    <iframe src="https://www.canva.com/design/DAHLVi-FhUE/NuJlj3Zpev9iK-YPVtIbKg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+    <div class="kiosk-container">
+        <iframe src="https://www.canva.com/design/DAHLWOa-2OM/eWacgEcAAaUK40Ke5HTGjw/watch?embed" allowfullscreen allow="autoplay"></iframe>
+    </div>
 
 </body>
+</html>
