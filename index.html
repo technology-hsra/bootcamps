@@ -13,21 +13,19 @@
             height: 100vh;
             overflow: hidden;
             background-color: #000; /* Black background for any letterboxing */
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        /* Force image to fill screen while maintaining aspect ratio */
-        img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: contain; /* Use 'fill' if you want to stretch it, 'contain' to keep it neat */
+        /* Force the Canva iframe to perfectly fill the kiosk screen */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
             display: block;
         }
     </style>
     
     <script>
+        // Reloads the page every 10 minutes to grab any fresh Canva updates
         setTimeout(function(){
            location.reload();
         }, 600000); 
@@ -35,7 +33,7 @@
 </head>
 <body>
 
-    <img src="https://raw.githubusercontent.com/technology-hsra/bootcamps/refs/heads/main/maybootcampupdated.png" alt="May Bootcamp Schedule">
+    <iframe src="https://www.canva.com/design/DAHLVi-FhUE/NuJlj3Zpev9iK-YPVtIbKg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
 
 </body>
 </html>
