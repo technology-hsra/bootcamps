@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HSRA Kiosk Display</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSRA Kiosk Display</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background: #000;
-    }
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
 
-    .kiosk-container {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-    }
+        .kiosk-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    iframe {
-      width: 100%;
-      height: 106%;
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  </style>
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
 
-  <script>
-    // Reload the whole page every 10 minutes
-    setInterval(function () {
-      window.location.reload();
-    }, 10 * 60 * 1000);
-  </script>
+    <script>
+        // Refresh every 10 minutes to ensure updates are picked up
+        setInterval(function () {
+            location.reload(true);
+        }, 600000);
+    </script>
 </head>
 
 <body>
-  <div class="kiosk-container">
-    <iframe
-      src="https://www.canva.com/design/DAHLWOa-2OM/eWacgEcAAaUK40Ke5HTGjw/watch?embed&autoplay=1&loop=1"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-    ></iframe>
-  </div>
+    <div class="kiosk-container">
+        <iframe
+            src="https://docs.google.com/presentation/d/e/2PACX-1vTpt8jKgwY06IO-03MSx34jYCZMcJrmepBACOv5KkB91wOe3D7ZernlDAF8LIdu2nNT3qKa6a_g3vU_/pubembed?start=true&loop=true&delayms=15000"
+            allowfullscreen="true"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true">
+        </iframe>
+    </div>
 </body>
 </html>
